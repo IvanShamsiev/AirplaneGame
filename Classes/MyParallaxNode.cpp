@@ -30,7 +30,7 @@ bool MyParallaxNode::init() {
     auto background2 = ImageNode::create("Background/2.png");
     background2->setContentSize(cocos2d::Size(visibleSize.width*2.0f, visibleSize.height));
     background2->setAnchorPoint(Vec2(0,0));
-    this->addChild(background2, -3, Vec2(1.4f,0.0f), Vec2(20.0f, 0.0f));
+    this->addChild(background2, -3, Vec2(1.4f,0.0f), Vec2(-20.0f, 0.0f));
 
     auto background3 = ImageNode::create("Background/3.png");
     background3->setContentSize(cocos2d::Size(visibleSize.width*2.0f, visibleSize.height));
@@ -40,7 +40,7 @@ bool MyParallaxNode::init() {
     auto background4 = ImageNode::create("Background/4.png");
     background4->setContentSize(cocos2d::Size(visibleSize.width*2.0f, visibleSize.height));
     background4->setAnchorPoint(Vec2(0,0));
-    this->addChild(background4, -1, Vec2(3.0f,0.0f), Vec2(100.0f, 0.0f));
+    this->addChild(background4, -1, Vec2(3.0f,0.0f), Vec2(-100.0f, 0.0f));
 
     return true;
 }

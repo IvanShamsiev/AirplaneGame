@@ -107,10 +107,17 @@ bool Player::onProjectileOverlap(PhysicsContact& contact) {
     if (!nodeA || !nodeB) return false;
     if (nodeA->getTag() == nodeB->getTag()) return false;
 
-    if (dynamic_cast<Projectile*>(nodeA) && dynamic_cast<Projectile*>(nodeB)) return false;
+    auto projectileA = dynamic_cast<Projectile*>(nodeA);
+    auto projectileB = dynamic_cast<Projectile*>(nodeB);
+    if (projectileA && projectileB && projectileA->isActive && projectileB->isActive) {
+        projectileA->isActive = false;
+        projectileA->setVisible(false);
+        projectileB->isActive = false;
+        projectileB->setVisible(false);
+        return false;
+    }
     
-    Projectile* projectile = dynamic_cast<Projectile*>(nodeA);
-    if (!projectile) projectile = dynamic_cast<Projectile*>(nodeB);
+    auto projectile = projectileA ? projectileA : projectileB;
     if (!projectile) return false;
     if (!projectile->isActive) return false;
     

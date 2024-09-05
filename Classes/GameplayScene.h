@@ -14,6 +14,7 @@ public:
     void update(float delta) override;
 
     void menuCloseCallback(cocos2d::Ref* pSender);
+    void menuRestartCallback(cocos2d::Ref* pSender);
 
     void incrementScore();
     void spawnEnemies(float dt);
